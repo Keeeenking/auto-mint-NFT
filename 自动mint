@@ -1,0 +1,40 @@
+当然！以下是一个简单的Python代码示例，可用于自动mint NFT：
+
+```python
+import requests
+
+# 设置API密钥和NFT合约地址
+API_KEY = 'your-api-key'
+CONTRACT_ADDRESS = 'your-contract-address'
+
+# 设置NFT元数据
+metadata = {
+    "name": "My NFT",
+    "description": "This is an example NFT",
+    "image": "https://example.com/image.jpg",
+}
+
+# 发送mint请求
+def mint_nft():
+    url = f'https://api.mintable.app/erc721/{CONTRACT_ADDRESS}/mint'
+    headers = {'x-api-key': API_KEY, 'content-type': 'application/json'}
+    response = requests.post(url, headers=headers, json=metadata)
+    
+    if response.status_code == 200:
+        print('NFT minted successfully!')
+    else:
+        print(f'Error minting NFT: {response.text}')
+
+# 调用mint_nft函数
+mint_nft()
+```
+
+请确保替换 `your-api-key`和 `your-contract-address` 为适当的值。另外，确保元数据包含正确的 NFT 信息。
+
+这只是一个基本示例，你可以根据你的需求进行修改和扩展。记得在运行代码之前安装 `requests` 库：
+
+```
+pip install requests
+```
+
+希望对你有所帮助！
